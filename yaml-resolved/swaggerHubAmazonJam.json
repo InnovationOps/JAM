@@ -29,7 +29,8 @@ host: "aws.amazon.com"
 basePath: "/streams"
 tags:
 - name: "AddTagsToStream"
-  description: "https://docs.aws.amazon.com/kinesis/latest/APIReference/API_AddTagsToStream.html"
+  description: "<a href='https://docs.aws.amazon.com/kinesis/latest/APIReference/API_AddTagsToStream.html#API_AddTagsToStream_RequestSyntax'\
+    \ target='_blank'>See Request Syntax</a>"
 - name: "CreateStream"
   description: "https://docs.aws.amazon.com/kinesis/latest/APIReference/API_CreateStream.html"
 - name: "DeleteStream"
@@ -43,7 +44,7 @@ tags:
 - name: "DisableEnhancedMonitoring"
   description: "https://docs.aws.amazon.com/kinesis/latest/APIReference/API_DisableEnhancedMonitoring.html"
 - name: "EnableEnhancedMonitoring"
-  description: "https://docs.aws.amazon.com/kinesis/latest/APIReference/API_EnableEnhancedMonitoring.html"
+  description: "https://docs.aws.amazon.com/kinesis/latest/APIReference/API_index.html"
 - name: "GetRecords"
   description: "https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetRecords.html"
 - name: "GetShardIterator"
