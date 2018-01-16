@@ -17,13 +17,13 @@ info:
     name: "AWS | Site Terms"
     url: "https://aws.amazon.com/terms/"
   x-logo:
-    url: "https://api.apis.guru/v2/cache/logo/https_d2k1ftgv7pobq7.cloudfront.net_meta_p_res_images_c13d1cd96a2cff30f0460a5e1860c5ea_header-logo-blue.svg"
+    url: "https://docs.aws.amazon.com/images/aws_logo_105x39.png"
   x-origin:
   - format: "swagger"
     url: "https://github.com/InnovationOps/JAM/tree/SWAGGERHUB/yaml-resolved"
     version: "2.0"
   x-preferred: true
-  x-providerName: null
+  x-providerName: "Amazon.com"
   x-unofficialSpec: true
 host: "aws.amazon.com"
 basePath: "/streams"
