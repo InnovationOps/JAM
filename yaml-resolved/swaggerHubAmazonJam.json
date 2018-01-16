@@ -160,10 +160,10 @@ paths:
         description: "Adds or updates tags for the specified Kinesis stream"
         required: true
         type: "string"
-      - name: "Key Name"
+      - name: "keyName"
         in: "query"
         description: "<a href=https://docs.aws.amazon.com/kinesis/latest/APIReference/API_AddTagsToStream.html#API_AddTagsToStream_RequestSyntax\
-          \ target='_blank'>Generate your application key</a>"
+          \ target='_blank'>Generate your application key</a> "
         required: true
         type: "string"
       - name: "token"
