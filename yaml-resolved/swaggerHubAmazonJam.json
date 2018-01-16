@@ -73,7 +73,7 @@ tags:
 schemes:
 - "https"
 paths:
-  /actions/{idAction}:
+  /AddTagsToStream:
     get:
       tags:
       - "action"
@@ -81,7 +81,7 @@ paths:
       operationId: "getActionsByIdAction"
       parameters:
       - name: "idAction"
-        in: "path"
+        in: "query"
         description: "idAction"
         required: true
         type: "string"
@@ -148,33 +148,27 @@ paths:
       security:
       - api_key: []
       - api_token: []
-    put:
+    post:
       tags:
-      - "action"
-      summary: "updateActionsByIdAction()"
-      operationId: "updateActionsByIdAction"
+      - "AddTagsToStream"
+      summary: "addTagsToStream()"
+      operationId: "addTagsToStream"
       parameters:
-      - name: "idAction"
-        in: "path"
-        description: "idAction"
+      - name: "StreamName"
+        in: "query"
+        description: "Adds or updates tags for the specified Kinesis stream"
         required: true
         type: "string"
-      - in: "body"
-        name: "body"
-        description: "Attributes of \"Actions\" to be updated."
-        required: true
-        schema:
-          $ref: "#/definitions/actions"
-      - name: "key"
+      - name: "Key Name"
         in: "query"
-        description: "<a href=\"https://trello.com/1/appKey/generate\"  target=\"\
-          _blank\">Generate your application key</a>"
+        description: "<a href=https://docs.aws.amazon.com/kinesis/latest/APIReference/API_AddTagsToStream.html#API_AddTagsToStream_RequestSyntax\
+          \ target='_blank'>Generate your application key</a>"
         required: true
         type: "string"
       - name: "token"
         in: "query"
-        description: "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"\
-          \  target=\"_blank\">Getting a token from a user</a>"
+        description: "<a href=https://docs.aws.amazon.com/kinesis/latest/APIReference/API_AddTagsToStream.html#API_AddTagsToStream_RequestSyntax\
+          \ target='_blank'>Getting a token from a user</a>"
         required: true
         type: "string"
       responses:
@@ -185,17 +179,22 @@ paths:
       security:
       - api_key: []
       - api_token: []
-    delete:
+    put:
       tags:
       - "action"
-      summary: "deleteActionsByIdAction()"
-      operationId: "deleteActionsByIdAction"
+      summary: "updateActionsByIdAction()"
+      operationId: "updateActionsByIdAction"
       parameters:
       - name: "idAction"
-        in: "path"
-        description: "idAction"
+        in: "query"
         required: true
         type: "string"
+      - in: "body"
+        name: "body"
+        description: "Attributes of \"Actions\" to be updated."
+        required: true
+        schema:
+          $ref: "#/definitions/actions"
       - name: "key"
         in: "query"
         description: "<a href=\"https://trello.com/1/appKey/generate\"  target=\"\
