@@ -276,4 +276,3 @@ securityDefinitions:
 definitions: {}
 externalDocs:
   url: "https://aws.amazon.com/documentation/kinesis/"
-x-hasEquivalentPaths: true
