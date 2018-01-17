@@ -30,14 +30,16 @@ basePath: "/streams"
 tags:
 - name: "AddTagsToStream"
   description: "<a href='https://docs.aws.amazon.com/kinesis/latest/APIReference/API_AddTagsToStream.html#API_AddTagsToStream_RequestSyntax'\
-    \ target='_blank'>See Request Syntax</a>"
+    \ target='_blank'>See Request Syntax</a> "
 - name: "CreateStream"
   description: "<a href='https://docs.aws.amazon.com/kinesis/latest/APIReference/API_CreateStream.html#API_createStream_RequestSyntax'\
     \ target='_blank'>See Request Syntax</a>"
 - name: "DeleteStream"
-  description: "https://docs.aws.amazon.com/kinesis/latest/APIReference/API_DeleteStream.html#API_createStream_RequestSyntax"
+  description: "<a href='https://docs.aws.amazon.com/kinesis/latest/APIReference/API_DeleteStream.html#API_createStream_RequestSyntax'\
+    \ target='_blank'>See Request Syntax</a> "
 - name: "DecreaseStreamRetentionPeriod"
-  description: "https://docs.aws.amazon.com/kinesis/latest/APIReference/API_DecreaseStreamRetentionPeriod.html"
+  description: "<a href='https://docs.aws.amazon.com/kinesis/latest/APIReference/API_DecreaseStreamRetentionPeriod.html#API_decreaseStreamRetentionPeriod'\
+    \ target='_blank'>See Request Syntax</a>"
 - name: "DescribeLimits"
   description: "https://docs.aws.amazon.com/kinesis/latest/APIReference/API_DescribeLimits.html"
 - name: "DescribeStream"
@@ -110,8 +112,8 @@ paths:
   /CreateStream:
     post:
       tags:
-      - "action"
-      summary: "getActionsBoardByIdAction()"
+      - "CreateStream"
+      summary: "createStream()"
       operationId: "createStream"
       parameters:
       - name: "shardCount"
@@ -121,14 +123,10 @@ paths:
         type: "integer"
       - name: "streamName"
         in: "query"
-        description: "all or a comma-separated list of: closed, dateLastActivity,\
-          \ dateLastView, desc, descData, idOrganization, invitations, invited, labelNames,\
-          \ memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred,\
-          \ subscribed or url"
-        required: false
+        description: "A name to identify the stream"
+        required: true
         type: "string"
-        default: "DefaultShardLimit"
-      - name: "key"
+      - name: "apiKey"
         in: "query"
         description: "<a href=\"https://trello.com/1/appKey/generate\"  target=\"\
           _blank\">Generate your application key</a>"
@@ -144,57 +142,20 @@ paths:
         200:
           description: "Success"
         400:
-          description: "Server rejection"
+          description: "Server Rejected"
       security:
       - api_key: []
       - api_token: []
-  /actions/{idAction}/board/{field}:
-    get:
-      tags:
-      - "action"
-      summary: "getActionsBoardByIdActionByField()"
-      operationId: "getActionsBoardByIdActionByField"
-      parameters:
-      - name: "idAction"
-        in: "path"
-        description: "idAction"
-        required: true
-        type: "string"
-      - name: "field"
-        in: "path"
-        description: "field"
-        required: true
-        type: "string"
-      - name: "key"
-        in: "query"
-        description: "<a href=\"https://trello.com/1/appKey/generate\"  target=\"\
-          _blank\">Generate your application key</a>"
-        required: true
-        type: "string"
-      - name: "token"
-        in: "query"
-        description: "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"\
-          \  target=\"_blank\">Getting a token from a user</a>"
-        required: true
-        type: "string"
-      responses:
-        200:
-          description: "Success"
-        400:
-          description: "Server rejection"
-      security:
-      - api_key: []
-      - api_token: []
-  /actions/{idAction}/card:
-    get:
+  /DeleteStream:
+    post:
       tags:
       - "action"
       summary: "getActionsCardByIdAction()"
-      operationId: "getActionsCardByIdAction"
+      operationId: "deleteStream"
       parameters:
       - name: "idAction"
         in: "path"
-        description: "idAction"
+        description: "Deletes a Kinesis stream and all its shards and data"
         required: true
         type: "string"
       - name: "fields"
@@ -207,6 +168,43 @@ paths:
         type: "string"
         default: "all"
       - name: "key"
+        in: "query"
+        description: "<a href=\"https://trello.com/1/appKey/generate\"  target=\"\
+          _blank\">Generate your application key</a>"
+        required: true
+        type: "string"
+      - name: "token"
+        in: "query"
+        description: "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"\
+          \  target=\"_blank\">Getting a token from a user</a>"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+        400:
+          description: "Server rejection"
+      security:
+      - api_key: []
+      - api_token: []
+  /DecreaseStreamRetentionPeriod:
+    post:
+      tags:
+      - "decreaseStreamRetentionPeriod"
+      summary: "decreaseStreamRetentionPeriod()"
+      operationId: "decreaseStreamRetentionPeriod"
+      parameters:
+      - name: "retentionPeriodHours"
+        in: "query"
+        description: "To decrease stream retention period"
+        required: true
+        type: "string"
+      - name: "streamName"
+        in: "query"
+        description: "The name of the stream to modify"
+        required: true
+        type: "string"
+      - name: "apiKey"
         in: "query"
         description: "<a href=\"https://trello.com/1/appKey/generate\"  target=\"\
           _blank\">Generate your application key</a>"
