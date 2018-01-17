@@ -12,7 +12,7 @@ info:
   title: "AmazonJAM Kinesis"
   contact:
     name: "Amazon JAM"
-    url: "https://us-west-2.console.aws.amazon.com/kinesis/home?region=us-west-2#/streams/list/"
+    url: "https://us-west-2.console.aws.amazon.com/kinesis/home?region=us-west-2#/streams"
   license:
     name: "AWS | Site Terms"
     url: "https://aws.amazon.com/terms/"
