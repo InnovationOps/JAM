@@ -38,7 +38,7 @@ tags:
   description: "<a href='https://docs.aws.amazon.com/kinesis/latest/APIReference/API_DeleteStream.html#API_createStream_RequestSyntax'\
     \ target='_blank'>See Request Syntax</a> "
 - name: "DecreaseStreamRetentionPeriod"
-  description: "<a href='https://docs.aws.amazon.com/kinesis/latest/APIReference/API_DecreaseStreamRetentionPeriod.html#API_decreaseStreamRetentionPeriod'\
+  description: "<a href='https://docs.aws.amazon.com/kinesis/latest/APIReference/API_DecreaseStreamRetentionPeriod.html'\
     \ target='_blank'>See Request Syntax</a>"
 - name: "DescribeLimits"
   description: "<a href='https://docs.aws.amazon.com/kinesis/latest/APIReference/API_DescribeLimits.html#API_DescribeStream'\
