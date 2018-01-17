@@ -32,9 +32,10 @@ tags:
   description: "<a href='https://docs.aws.amazon.com/kinesis/latest/APIReference/API_AddTagsToStream.html#API_AddTagsToStream_RequestSyntax'\
     \ target='_blank'>See Request Syntax</a>"
 - name: "CreateStream"
-  description: "https://docs.aws.amazon.com/kinesis/latest/APIReference/API_CreateStream.html"
+  description: "<a href='https://docs.aws.amazon.com/kinesis/latest/APIReference/API_CreateStream.html#API_createStream_RequestSyntax'\
+    \ target='_blank'>See Request Syntax</a>"
 - name: "DeleteStream"
-  description: "https://docs.aws.amazon.com/kinesis/latest/APIReference/API_DeleteStream"
+  description: "https://docs.aws.amazon.com/kinesis/latest/APIReference/API_DeleteStream.html#API_createStream_RequestSyntax"
 - name: "DecreaseStreamRetentionPeriod"
   description: "https://docs.aws.amazon.com/kinesis/latest/APIReference/API_DecreaseStreamRetentionPeriod.html"
 - name: "DescribeLimits"
@@ -75,80 +76,6 @@ schemes:
 - "https"
 paths:
   /AddTagsToStream:
-    get:
-      tags:
-      - "action"
-      summary: "getActionsByIdAction()"
-      operationId: "getActionsByIdAction"
-      parameters:
-      - name: "idAction"
-        in: "query"
-        description: "idAction"
-        required: true
-        type: "string"
-      - name: "display"
-        in: "query"
-        description: " true or false"
-        required: false
-        type: "string"
-      - name: "entities"
-        in: "query"
-        description: " true or false"
-        required: false
-        type: "string"
-      - name: "fields"
-        in: "query"
-        description: "all or a comma-separated list of: data, date, idMemberCreator\
-          \ or type"
-        required: false
-        type: "string"
-        default: "all"
-      - name: "member"
-        in: "query"
-        description: " true or false"
-        required: false
-        type: "string"
-      - name: "member_fields"
-        in: "query"
-        description: "all or a comma-separated list of: avatarHash, bio, bioData,\
-          \ confirmed, fullName, idPremOrgsAdmin, initials, memberType, products,\
-          \ status, url or username"
-        required: false
-        type: "string"
-        default: "avatarHash, fullName, initials and username"
-      - name: "memberCreator"
-        in: "query"
-        description: " true or false"
-        required: false
-        type: "string"
-      - name: "memberCreator_fields"
-        in: "query"
-        description: "all or a comma-separated list of: avatarHash, bio, bioData,\
-          \ confirmed, fullName, idPremOrgsAdmin, initials, memberType, products,\
-          \ status, url or username"
-        required: false
-        type: "string"
-        default: "avatarHash, fullName, initials and username"
-      - name: "key"
-        in: "query"
-        description: "<a href=\"https://trello.com/1/appKey/generate\"  target=\"\
-          _blank\">Generate your application key</a>"
-        required: true
-        type: "string"
-      - name: "token"
-        in: "query"
-        description: "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"\
-          \  target=\"_blank\">Getting a token from a user</a>"
-        required: true
-        type: "string"
-      responses:
-        200:
-          description: "Success"
-        400:
-          description: "Server rejection"
-      security:
-      - api_key: []
-      - api_token: []
     post:
       tags:
       - "AddTagsToStream"
@@ -180,55 +107,19 @@ paths:
       security:
       - api_key: []
       - api_token: []
-    put:
-      tags:
-      - "action"
-      summary: "updateActionsByIdAction()"
-      operationId: "updateActionsByIdAction"
-      parameters:
-      - name: "idAction"
-        in: "query"
-        required: true
-        type: "string"
-      - in: "body"
-        name: "body"
-        description: "Attributes of \"Actions\" to be updated."
-        required: true
-        schema:
-          $ref: "#/definitions/actions"
-      - name: "key"
-        in: "query"
-        description: "<a href=\"https://trello.com/1/appKey/generate\"  target=\"\
-          _blank\">Generate your application key</a>"
-        required: true
-        type: "string"
-      - name: "token"
-        in: "query"
-        description: "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"\
-          \  target=\"_blank\">Getting a token from a user</a>"
-        required: true
-        type: "string"
-      responses:
-        200:
-          description: "Success"
-        400:
-          description: "Server rejection"
-      security:
-      - api_key: []
-      - api_token: []
-  /actions/{idAction}/board:
-    get:
+  /CreateStream:
+    post:
       tags:
       - "action"
       summary: "getActionsBoardByIdAction()"
-      operationId: "getActionsBoardByIdAction"
+      operationId: "createStream"
       parameters:
-      - name: "idAction"
-        in: "path"
-        description: "idAction"
+      - name: "shardCount"
+        in: "query"
+        description: "The number of shards that the stream will use"
         required: true
-        type: "string"
-      - name: "fields"
+        type: "integer"
+      - name: "streamName"
         in: "query"
         description: "all or a comma-separated list of: closed, dateLastActivity,\
           \ dateLastView, desc, descData, idOrganization, invitations, invited, labelNames,\
@@ -236,7 +127,7 @@ paths:
           \ subscribed or url"
         required: false
         type: "string"
-        default: "all"
+        default: "DefaultShardLimit"
       - name: "key"
         in: "query"
         description: "<a href=\"https://trello.com/1/appKey/generate\"  target=\"\
