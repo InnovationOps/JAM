@@ -177,8 +177,8 @@ paths:
         type: "string"
       - name: "apiKey"
         in: "query"
-        description: "<a href=\"https://trello.com/1/appKey/generate\"  target=\"\
-          _blank\">Generate your application key</a>"
+        description: "<a href=\"https://trello.com/1/appKey/generate\" target=\"_blank\"\
+          >Generate your application key</a>"
         required: true
         type: "string"
       - name: "token"
