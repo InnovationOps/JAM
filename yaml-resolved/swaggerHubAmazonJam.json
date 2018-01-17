@@ -175,7 +175,7 @@ paths:
         description: "Deletes a Kinesis stream and all its shards and data"
         required: true
         type: "string"
-      - name: "key"
+      - name: "apiKey"
         in: "query"
         description: "<a href=\"https://trello.com/1/appKey/generate\"  target=\"\
           _blank\">Generate your application key</a>"
@@ -206,7 +206,7 @@ paths:
         in: "query"
         description: "To decrease stream retention period"
         required: true
-        type: "string"
+        type: "integer"
       - name: "streamName"
         in: "query"
         description: "The name of the stream to modify"
