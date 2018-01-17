@@ -12,7 +12,7 @@ info:
   title: "AmazonJAM Kinesis"
   contact:
     name: "Amazon JAM"
-    url: "https://us-west-2.console.aws.amazon.com/kinesis/home?region=us-west-2#/streams/list"
+    url: "https://us-west-2.console.aws.amazon.com/kinesis/home?region=us-west-2#/streams/list/"
   license:
     name: "AWS | Site Terms"
     url: "https://aws.amazon.com/terms/"
@@ -29,10 +29,10 @@ host: "aws.amazon.com"
 basePath: "/streams"
 tags:
 - name: "AddTagsToStream"
-  description: "<a href='https://docs.aws.amazon.com/kinesis/latest/APIReference/API_AddTagsToStream.html#API_AddTagsToStream_RequestSyntax'\
+  description: "<a href='https://docs.aws.amazon.com/kinesis/latest/APIReference/API_AddTagsToStream.html'\
     \ target='_blank'>See Request Syntax</a> "
 - name: "CreateStream"
-  description: "<a href='https://docs.aws.amazon.com/kinesis/latest/APIReference/API_CreateStream.html#API_createStream_RequestSyntax'\
+  description: "<a href='https://docs.aws.amazon.com/kinesis/latest/APIReference/API_CreateStream.html'\
     \ target='_blank'>See Request Syntax</a>"
 - name: "DeleteStream"
   description: "<a href='https://docs.aws.amazon.com/kinesis/latest/APIReference/API_DeleteStream.html#API_createStream_RequestSyntax'\
