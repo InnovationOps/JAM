@@ -167,7 +167,7 @@ paths:
     post:
       tags:
       - "DeleteStream"
-      summary: "deleteStream()"
+      summary: "DeleteStream()"
       operationId: "deleteStream"
       parameters:
       - name: "streamName"
@@ -198,8 +198,8 @@ paths:
   /DecreaseStreamRetentionPeriod:
     post:
       tags:
-      - "decreaseStreamRetentionPeriod"
-      summary: "decreaseStreamRetentionPeriod()"
+      - "DecreaseStreamRetentionPeriod"
+      summary: "DecreaseStreamRetentionPeriod()"
       operationId: "decreaseStreamRetentionPeriod"
       parameters:
       - name: "retentionPeriodHours"
@@ -235,7 +235,7 @@ paths:
   /DescribeLimits:
     post:
       tags:
-      - "describeLimits"
+      - "DescribeLimits"
       summary: "describeLimits()"
       operationId: "describeLimits"
       parameters:
