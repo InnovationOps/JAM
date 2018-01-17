@@ -34,12 +34,12 @@ tags:
 - name: "CreateStream"
   description: "<a href='https://docs.aws.amazon.com/kinesis/latest/APIReference/API_CreateStream.html'\
     \ target='_blank'>See Request Syntax</a>"
-- name: "DeleteStream"
-  description: "<a href='https://docs.aws.amazon.com/kinesis/latest/APIReference/API_DeleteStream.html#API_createStream_RequestSyntax'\
-    \ target='_blank'>See Request Syntax</a> "
 - name: "DecreaseStreamRetentionPeriod"
   description: "<a href='https://docs.aws.amazon.com/kinesis/latest/APIReference/API_DecreaseStreamRetentionPeriod.html'\
     \ target='_blank'>See Request Syntax</a>"
+- name: "DeleteStream"
+  description: "<a href='https://docs.aws.amazon.com/kinesis/latest/APIReference/API_DeleteStream.html#API_createStream_RequestSyntax'\
+    \ target='_blank'>See Request Syntax</a> "
 - name: "DescribeLimits"
   description: "<a href='https://docs.aws.amazon.com/kinesis/latest/APIReference/API_DescribeLimits.html#API_DescribeStream'\
     \ target='_blank'>See Request Syntax</a> "
@@ -163,43 +163,11 @@ paths:
       security:
       - api_key: []
       - api_token: []
-  /DeleteStream:
-    post:
-      tags:
-      - "DeleteStream"
-      summary: "DeleteStream()"
-      operationId: "deleteStream"
-      parameters:
-      - name: "streamName"
-        in: "query"
-        description: "Deletes a Kinesis stream and all its shards and data"
-        required: true
-        type: "string"
-      - name: "apiKey"
-        in: "query"
-        description: "<a href=\"https://trello.com/1/appKey/generate\" target=\"_blank\"\
-          >Generate your application key</a>"
-        required: true
-        type: "string"
-      - name: "token"
-        in: "query"
-        description: "<a href='https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user'\
-          \ target='_blank'>Getting a token from a user</a>"
-        required: true
-        type: "string"
-      responses:
-        200:
-          description: "Success"
-        400:
-          description: "Server rejection"
-      security:
-      - api_key: []
-      - api_token: []
   /DecreaseStreamRetentionPeriod:
     post:
       tags:
       - "DecreaseStreamRetentionPeriod"
-      summary: "DecreaseStreamRetentionPeriod()"
+      summary: "decreaseStreamRetentionPeriod()"
       operationId: "decreaseStreamRetentionPeriod"
       parameters:
       - name: "retentionPeriodHours"
@@ -232,6 +200,38 @@ paths:
       security:
       - api_key: []
       - api_token: []
+  /DeleteStream:
+    post:
+      tags:
+      - "DeleteStream"
+      summary: "deleteStream()"
+      operationId: "deleteStream"
+      parameters:
+      - name: "streamName"
+        in: "query"
+        description: "Deletes a Kinesis stream and all its shards and data"
+        required: true
+        type: "string"
+      - name: "apiKey"
+        in: "query"
+        description: "<a href=\"https://trello.com/1/appKey/generate\" target=\"_blank\"\
+          >Generate your application key</a>"
+        required: true
+        type: "string"
+      - name: "token"
+        in: "query"
+        description: "<a href='https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user'\
+          \ target='_blank'>Getting a token from a user</a>"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+        400:
+          description: "Server rejection"
+      security:
+      - api_key: []
+      - api_token: []
   /DescribeLimits:
     post:
       tags:
@@ -242,6 +242,48 @@ paths:
       - name: "ExclusiveStartShardId"
         in: "query"
         description: "Describes the specified Kinesis stream"
+        required: true
+        type: "string"
+      - name: "apiKey"
+        in: "query"
+        description: "<a href='https://trello.com/1/appKey/generate' target='_blank'>Generate\
+          \ your application key</a>"
+        required: true
+        type: "string"
+      - name: "token"
+        in: "query"
+        description: "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"\
+          \  target=\"_blank\">Getting a token from a user</a>"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+        400:
+          description: "Server rejection"
+      security:
+      - api_key: []
+      - api_token: []
+  /DescribeStream:
+    post:
+      tags:
+      - "DescribeStream"
+      summary: "describeStream()"
+      operationId: "describeStream"
+      parameters:
+      - name: "ExclusiveStartShardId"
+        in: "query"
+        description: "The shard ID of the shard to start with"
+        required: true
+        type: "integer"
+      - name: "Limit"
+        in: "query"
+        description: "The maximum number of shards to return in a single call"
+        required: true
+        type: "integer"
+      - name: "StreamName"
+        in: "query"
+        description: "The name of the stream to describe"
         required: true
         type: "string"
       - name: "apiKey"
