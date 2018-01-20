@@ -1268,3 +1268,4 @@ securityDefinitions:
     in: "query"
 definitions: {}
 x-hasEquivalentPaths: true
+x-Content-Type:
