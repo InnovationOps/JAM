@@ -150,6 +150,8 @@ paths:
           description: "Status OK"
         400:
           description: "Server Rejection"
+        401:
+          description: "Missing parameter. client_id is Required"  
         403:
           description: "403 Forbidden"
       security:
