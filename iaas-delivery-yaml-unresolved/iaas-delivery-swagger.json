@@ -115,7 +115,7 @@ paths:
       parameters:
       - name: "with"
         in: "query"
-        description: "Returns sub-object or count of sub-objects relating to the member. If sub-object is requested, response will return the first 20 records"
+        description: "Returns sub-object or count of sub-objects relating to the member"
         required: false
         type: "string"
       - name: "format"
