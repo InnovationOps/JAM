@@ -67,40 +67,40 @@ tags:
 - name: Comment
   description: 
       "<a href='https://developer.brightidea.com/_documentation/api/comment' target='_blank'> Get Comments</a>"
-- name: 
+- name: CommentVote
   description: 
       "<a href='https://developer.brightidea.com/_documentation/api/idea' target='_blank'> Get data of one idea object</a>"
-- name: 
+- name: Idea
   description:  
       "<a href='https://developer.brightidea.com/_documentation/api/idea' target='_blank'> Get data of one idea object</a>"
-- name: 
+- name: IdeaAttachment 
   description: 
       "<a href='https://developer.brightidea.com/_documentation/api/idea' target='_blank'> Get data of one idea object</a>"
-- name: 
+- name: Blog
   description: 
       "<a href='https://developer.brightidea.com/_documentation/api/idea' target='_blank'> Get data of one idea object</a>"
-- name: 
+- name: BlogComment
   description: 
       "<a href='https://developer.brightidea.com/_documentation/api/idea' target='_blank'> Get data of one idea object</a>"
-- name: 
+- name: Tag
   description: 
       "<a href='https://developer.brightidea.com/_documentation/api/idea' target='_blank'> Get data of one idea object</a>"
-- name:
+- name: Vote
   description: 
       "<a href='https://developer.brightidea.com/_documentation/api/idea' target='_blank'> Get data of one idea object</a>"
-- name: 
+- name: ChipVote
   description: 
       "<a href='https://developer.brightidea.com/_documentation/api/idea' target='_blank'> Get data of one idea object</a>"
-- name: 
+- name: Activity
   description: 
       "<a href='https://developer.brightidea.com/_documentation/api/idea' target='_blank'> Get data of one idea object</a>"
-- name: 
+- name: Status
   description: 
       "<a href='https://developer.brightidea.com/_documentation/api/idea' target='_blank'> Get data of one idea object</a>"
-- name: 
+- name: Category
   description: 
       "<a href='https://developer.brightidea.com/_documentation/api/idea' target='_blank'> Get data of one idea object</a>"
-- name: 
+- name: Update
   description: 
       "<a href='https://developer.brightidea.com/_documentation/api/idea' target='_blank'> Get data of one idea object</a>"
 schemes:
@@ -148,7 +148,7 @@ paths:
         type: "string"
       - name: "email"
         in: "query"
-        description: "Filter return by member email address. 
+        description: "Filter return by member email address" 
         required: false
         type: "string"
       - name: "screen_name"
