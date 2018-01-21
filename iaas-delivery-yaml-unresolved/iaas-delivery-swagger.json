@@ -212,7 +212,7 @@ paths:
         in: "query"
         description: "Specifies returned data format"
         required: false
-        type: "string"    
+        type: "string"      
       responses:
         200:
           description: "Status OK"
@@ -227,8 +227,9 @@ paths:
       - api_token: []
     post:
       tags:
-      summary: 
-      operationId:
+      - "Member"
+      summary: "member()"
+      operationId: "member"
       parameters:
       - name: "email"
         in: "query"
