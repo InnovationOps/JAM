@@ -224,7 +224,7 @@ paths:
           description: "403 Forbidden"
       security:
       - api_key: []
-      - api_token: []
+      - api_token: []  
     post:
       tags:
       - "Member"
