@@ -69,40 +69,40 @@ tags:
       "<a href='https://developer.brightidea.com/_documentation/api/comment' target='_blank'> Get Comments</a>"
 - name: CommentVote
   description: 
-      "<a href='https://developer.brightidea.com/_documentation/api/idea' target='_blank'> Get data of one idea object</a>"
+      "<a href='https://developer.brightidea.com/_documentation/api/CommentVote' target='_blank'> Get data of one idea object</a>"
 - name: Idea
   description:  
       "<a href='https://developer.brightidea.com/_documentation/api/idea' target='_blank'> Get data of one idea object</a>"
 - name: IdeaAttachment 
   description: 
-      "<a href='https://developer.brightidea.com/_documentation/api/idea' target='_blank'> Get data of one idea object</a>"
+      "<a href='https://developer.brightidea.com/_documentation/api/IdeaAttachment' target='_blank'> Get data of one idea object</a>"
 - name: Blog
   description: 
-      "<a href='https://developer.brightidea.com/_documentation/api/idea' target='_blank'> Get data of one idea object</a>"
+      "<a href='https://developer.brightidea.com/_documentation/api/Blog' target='_blank'> Get data of one idea object</a>"
 - name: BlogComment
   description: 
-      "<a href='https://developer.brightidea.com/_documentation/api/idea' target='_blank'> Get data of one idea object</a>"
+      "<a href='https://developer.brightidea.com/_documentation/api/BlogComment' target='_blank'> Get data of one idea object</a>"
 - name: Tag
   description: 
-      "<a href='https://developer.brightidea.com/_documentation/api/idea' target='_blank'> Get data of one idea object</a>"
+      "<a href='https://developer.brightidea.com/_documentation/api/Tag' target='_blank'> Get data of one idea object</a>"
 - name: Vote
   description: 
-      "<a href='https://developer.brightidea.com/_documentation/api/idea' target='_blank'> Get data of one idea object</a>"
+      "<a href='https://developer.brightidea.com/_documentation/api/Vote' target='_blank'> Get data of one idea object</a>"
 - name: ChipVote
   description: 
-      "<a href='https://developer.brightidea.com/_documentation/api/idea' target='_blank'> Get data of one idea object</a>"
+      "<a href='https://developer.brightidea.com/_documentation/api/ChipVote' target='_blank'> Get data of one idea object</a>"
 - name: Activity
   description: 
-      "<a href='https://developer.brightidea.com/_documentation/api/idea' target='_blank'> Get data of one idea object</a>"
+      "<a href='https://developer.brightidea.com/_documentation/api/Activity' target='_blank'> Get Activity Data</a>"
 - name: Status
   description: 
-      "<a href='https://developer.brightidea.com/_documentation/api/idea' target='_blank'> Get data of one idea object</a>"
+      "<a href='https://developer.brightidea.com/_documentation/api/Status' target='_blank'> Get Status Data</a>"
 - name: Category
   description: 
-      "<a href='https://developer.brightidea.com/_documentation/api/idea' target='_blank'> Get data of one idea object</a>"
+      "<a href='https://developer.brightidea.com/_documentation/api/Category' target='_blank'> Get Category Data</a>"
 - name: Update
   description: 
-      "<a href='https://developer.brightidea.com/_documentation/api/idea' target='_blank'> Get data of one idea object</a>"
+      "<a href='https://developer.brightidea.com/_documentation/api/Update' target='_blank'> Get Update</a>"
 schemes:
 - "https"
 paths:
