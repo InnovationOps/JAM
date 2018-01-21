@@ -60,56 +60,53 @@ basePath: "/api3"
 tags:
 - name: Member
   description: 
-      "<a href='https://developer.brightidea.com/_documentation/api/member' target='_blank'> Get data of one idea object</a>"
-- name: "Applications Hourly"
-  description: 
-      "<a href='https://developer.brightidea.com/_documentation/api/profileImage' target='_blank'> Get data one Image object</a>"
+      "<a href='https://developer.brightidea.com/_documentation/api/member' target='_blank'> Get Member Data</a>"
 - name: ProfileImage 
   description: 
-      "<a href='https://developer.brightidea.com/_documentation/api/comment' target='_blank'> Get data of one Comment object</a>"
+      "<a href='https://developer.brightidea.com/_documentation/api/ProfileImage' target='_blank'> Get ProfileImage Data</a>"
 - name: Comment
   description: 
-      "<a href='https://developer.brightidea.com/_documentation/api/idea' target='_blank'> Get data of one idea object</a>"
-- name: "Application Events"
+      "<a href='https://developer.brightidea.com/_documentation/api/comment' target='_blank'> Get Comments</a>"
+- name: 
   description: 
       "<a href='https://developer.brightidea.com/_documentation/api/idea' target='_blank'> Get data of one idea object</a>"
-- name: "Business Activities Raw"
+- name: 
   description:  
       "<a href='https://developer.brightidea.com/_documentation/api/idea' target='_blank'> Get data of one idea object</a>"
-- name: "Business Activities Hourly"
+- name: 
   description: 
       "<a href='https://developer.brightidea.com/_documentation/api/idea' target='_blank'> Get data of one idea object</a>"
-- name: "Business Activities Daily"
+- name: 
   description: 
       "<a href='https://developer.brightidea.com/_documentation/api/idea' target='_blank'> Get data of one idea object</a>"
-- name: "Dashboard Views Audit"
+- name: 
   description: 
       "<a href='https://developer.brightidea.com/_documentation/api/idea' target='_blank'> Get data of one idea object</a>"
-- name: "Device Inventory"
+- name: 
   description: 
       "<a href='https://developer.brightidea.com/_documentation/api/idea' target='_blank'> Get data of one idea object</a>"
-- name: "Reporting Agents Count"
+- name:
   description: 
       "<a href='https://developer.brightidea.com/_documentation/api/idea' target='_blank'> Get data of one idea object</a>"
-- name: "Not Reporting Activities"
+- name: 
   description: 
       "<a href='https://developer.brightidea.com/_documentation/api/idea' target='_blank'> Get data of one idea object</a>"
-- name: "User Audit"
+- name: 
   description: 
       "<a href='https://developer.brightidea.com/_documentation/api/idea' target='_blank'> Get data of one idea object</a>"
-- name: "Windows Machine Boots"
+- name: 
   description: 
       "<a href='https://developer.brightidea.com/_documentation/api/idea' target='_blank'> Get data of one idea object</a>"
-- name: "API NOC Application Current Score"
+- name: 
   description: 
       "<a href='https://developer.brightidea.com/_documentation/api/idea' target='_blank'> Get data of one idea object</a>"
-- name: "API NOC Application Historical Score"
+- name: 
   description: 
       "<a href='https://developer.brightidea.com/_documentation/api/idea' target='_blank'> Get data of one idea object</a>"
 schemes:
 - "https"
 paths:
-  /member:
+  /Member:
     get:
       tags:
       - "Member"
@@ -151,7 +148,7 @@ paths:
         type: "string"
       - name: "email"
         in: "query"
-        description: "Filter return by member email address. Parameter is available to Admin requester only"
+        description: "Filter return by member email address. 
         required: false
         type: "string"
       - name: "screen_name"
@@ -347,7 +344,7 @@ paths:
       parameters:
       - name: "password"
         in: "query"
-        description: "This is the password of the member. Requester can only update password for their own member object. Value must honor Affiliate password rule"
+        description: "This is the password of the member"
         required: false
         type: "string"
       - name: "screen_name"
@@ -362,7 +359,7 @@ paths:
         type: "string"
       - name: "first_name"
         in: "query"
-        description: "This is the first name of the member. Maximum 50 characters, string will be truncated if length exceeds maximum"
+        description: "This is the first name of the member" 
         required: false
         type: "string"
       - name: "job_title"
@@ -508,91 +505,7 @@ paths:
       security:
       - api_key: []
       - api_token: []
-  /Member: 
-    get:
-      tags:
-      - "Applications Raw"
-      summary: "applicationsRaw()"
-      description: "Use the APPLICATIONS_RAW API to retrieve the raw list of reports\
-        \ from Aternity at five minute intervals"
-      operationId: "applicationsRaw"
-      parameters:
-      - name: "$format"
-        in: "header"
-        description: "Use $format to force the returned data to be in XML or JSON\
-          \ format"
-        required: false
-        type: "string"
-      - name: "$top"
-        in: "header"
-        description: "Use $top by returning the first few entries sequentially"
-        required: false
-        type: "string"
-      - name: "$select"
-        in: "header"
-        description: "Use $select o return several columns, list them separated by\
-          \ a comma"
-        required: false
-        type: "string"
-      - name: "$filter"
-        in: "header"
-        description: "Use $filter to insert conditions which narrow down the output\
-          \ data returned"
-        required: false
-        type: "string"
-      responses:
-        200:
-          description: "Status OK"
-        400:
-          description: "Server rejection"
-        403:
-          description: "403 Forbidden"
-      security:
-      - api_key: []
-      - api_token: []
-  /ProfileImage: 
-    get:
-      tags:
-      - "Applications Hourly"
-      summary: "applicationsHourly()"
-      description: "View the performance each discovered application running on a\
-        \ device, where the measurements are aggregated per hour or per day, along\
-        \ with the user, location and device details."
-      operationId: "applicationsHourly"
-      parameters:
-      - name: "$format"
-        in: "header"
-        description: "Use $format to force the returned data to be in XML or JSON\
-          \ format"
-        required: false
-        type: "string"
-      - name: "$top"
-        in: "header"
-        description: "Use $top by returning the first few entries sequentially"
-        required: false
-        type: "string"
-      - name: "$select"
-        in: "header"
-        description: "Use $select o return several columns, list them separated by\
-          \ a comma"
-        required: false
-        type: "string"
-      - name: "$filter"
-        in: "header"
-        description: "Use $filter to insert conditions which narrow down the output\
-          \ data returned"
-        required: false
-        type: "string"
-      responses:
-        200:
-          description: "Status OK"
-        400:
-          description: "Server rejection"
-        403:
-          description: "403 Forbidden"
-      security:
-      - api_key: []
-      - api_token: []
+ 
   /Comment: 
     get:
       tags:
