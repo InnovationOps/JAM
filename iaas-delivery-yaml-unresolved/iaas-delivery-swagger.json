@@ -114,9 +114,16 @@ paths:
         required: true
         type: "string"
         description: "Bearer e294b53399f99d330e7ec73ab1813f9ba717eb43"
+      - name: "accept"
+        in: "header"
+        required: true
+        type: "string"
+        description: "application/x-www-form-urlencoded"
       responses:
         200:
           description: "OK"
+        401:
+          description: "Unauthorized"  
         403:
           description: "403 Forbidden"
   /ALL_ACTIVITIES:
