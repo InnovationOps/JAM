@@ -1,3 +1,9 @@
+swagger: '2.0'
+info:
+  version: "Beta-1.0.0.5"
+  title: BrightIdea OAuth Password Flow
+  description: This is an example of using OAuth 1 or 2 Password Flow in a specification to describe security to your API.
+
 ---
 swagger: "2.0"
 info:
@@ -54,9 +60,29 @@ info:
         
     
     Parameter requirements are different for each API function. Visit the Parameter section of each object page to understand what it takes to make a request.
-
-host: "amgen.brightidea.com"
-basePath: "/api3"
+securityDefinitions:
+  password:
+    type: oauth2
+    # This should be updated to the Token URL of your OAuth provider.
+    tokenUrl: https://auth.brightidea.com/_oauth2/token
+    flow: password
+    scopes:
+      write: allows modifying resources
+      read: allows reading resources
+security:
+  - password:
+    - read
+    - write
+paths:
+  /token:
+    post:
+      summary: https://auth.brightidea.com/_oauth2/authorize?client_id=<applicationid>&response_type=code&redirect_uri=<applicationredirecturl>
+      description: This is an example opeartion to show how security is applied to the call.
+      responses:
+        200:
+          description: OK
+host: "auth.brightidea.com"
+basePath: "/oauth"
 tags:
 - name: Member
   description: 
