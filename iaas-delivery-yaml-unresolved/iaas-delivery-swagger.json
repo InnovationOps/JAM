@@ -262,3 +262,4 @@ paths:
           description: "403 Forbidden"
 definitions: {}
 x-hasEquivalentPaths: true
+#https://app.swaggerhub.com/apis/IaaS-Delivery/BrightIdea/Beta-1.0.0.5?code#=e294b53399f99d330e7ec73ab1813f9ba717eb43&code=2723e8316ee60ed7be3df5628f8e0ed8f196adaa
