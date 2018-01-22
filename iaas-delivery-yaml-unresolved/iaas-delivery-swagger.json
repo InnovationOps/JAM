@@ -104,26 +104,36 @@ tags:
 schemes:
 - "https"
 paths:
-  /Member/{id}:
+  /Member:
     get:
       description: "Member Object Info"
-      operationId: "id"
+      operationId: "me"
       parameters:
-      - name: "client_id"
-        in: "path"
-        required: true
-        type: "string"
-        description: "11111111-1111-1111-1111-111111111111"
-      - name: "with"
+      - name: "clien_id"
         in: "query"
         required: true
         type: "string"
-        description: 'groups, groups_count'
-      - name: "email"
+      - name: "clien_secret"
         in: "query"
         required: true
         type: "string"
-        description: username@amgen.com
+      - name: "code"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "redirect_uri"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "username"
+        in: "header"
+        required: true
+        type: "string"
+      - name: "password"
+        in: "header"
+        required: true
+        type: "string"
+      
       responses:
         200:
           description: "200 OK"
