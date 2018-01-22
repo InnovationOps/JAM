@@ -109,10 +109,11 @@ paths:
       description: "Use CONNECTION_TEST to check your connection to the REST API service"
       operationId: "connectionTest"
       parameters:
-      - name: "client_id"
+      - name: "Authorization"
         in: "header"
         required: true
         type: "string"
+        description: "Bearer 4e2c36e6cfae699134f7033b25fa6e7917ae1a9e"
       responses:
         200:
           description: "OK"
