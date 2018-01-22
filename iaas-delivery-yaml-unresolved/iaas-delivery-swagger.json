@@ -104,28 +104,34 @@ tags:
 schemes:
 - "https"
 paths:
-  /Member:
+  /Member/{id}:
     get:
       description: "Member Object Info"
-      operationId: "member"
+      operationId: "id"
       parameters:
-      - name: "Authorization"
-        in: "header"
+      - name: "id"
+        in: "path"
         required: true
         type: "string"
-        description: "Bearer e294b53399f99d330e7ec73ab1813f9ba717eb43"
-      - name: "accept"
-        in: "header"
+        description: "11111111-1111-1111-1111-111111111111"
+      - name: "with"
+        in: "query"
         required: true
         type: "string"
-        description: "application/x-www-form-urlencoded; application/json; application/txt"
+        description: 'groups, groups_count'
+      - name: "email"
+        in: "query"
+        required: true
+        type: "string"
+        description: username@amgen.com
       responses:
         200:
-          description: "OK"
+          description: "200 OK"
         401:
-          description: "Unauthorized"  
+          description: "401 Unauthorized"  
         403:
           description: "403 Forbidden"
+          #/8FA49B96-3693-4282-8919-014618D7B3B8?with=groups&group_count
     post:
       description: "Create Member"
       operationId: "CreateMember"
