@@ -22,9 +22,9 @@ info:
 
     There are a few basic url structures to Brightidea API requests:
     
-      - https://{host_name}/api3/{object}
-      - https://{host_name}/api3/{object}/{id}
-      - https://{host_name}/api3/widget/{object}
+      - https://Amgen.brightidea.com/api3/{object}
+      - https://Amgen.brightidea.com/api3/{object}/{id}
+      - https://Amgen.brightidea.com/api3/widget/{object}
     
     Access Token: 
       
@@ -32,7 +32,7 @@ info:
       
       Example:
       
-        MyOrg.brightidea.com
+        Amgen.brightidea.com
       
 
     Header:
@@ -107,13 +107,13 @@ paths:
   /Member:
     get:
       description: "Use CONNECTION_TEST to check your connection to the REST API service"
-      operationId: "member"
+      operationId: "connectionTest"
       parameters:
       - name: "Authorization"
         in: "header"
         required: true
         type: "string"
-        description: "Bearer 4e2c36e6cfae699134f7033b25fa6e7917ae1a9e"
+        description: "Bearer e294b53399f99d330e7ec73ab1813f9ba717eb43"
       responses:
         200:
           description: "OK"
