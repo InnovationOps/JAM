@@ -1,10 +1,3 @@
-swagger: '2.0'
-info:
-  version: "Beta-1.0.0.5"
-  title: BrightIdea OAuth Password Flow
-  description: This is an example of using OAuth 1 or 2 Password Flow in a specification to describe security to your API.
-
----
 swagger: "2.0"
 info:
   title: "BrightIdea API"
@@ -60,29 +53,6 @@ info:
         
     
     Parameter requirements are different for each API function. Visit the Parameter section of each object page to understand what it takes to make a request.
-securityDefinitions:
-  password:
-    type: oauth2
-    # This should be updated to the Token URL of your OAuth provider.
-    tokenUrl: https://auth.brightidea.com/_oauth2/token
-    flow: password
-    scopes:
-      write: allows modifying resources
-      read: allows reading resources
-security:
-  - password:
-    - read
-    - write
-paths:
-  /token:
-    post:
-      summary: https://auth.brightidea.com/_oauth2/authorize?client_id=<applicationid>&response_type=code&redirect_uri=<applicationredirecturl>
-      description: This is an example opeartion to show how security is applied to the call.
-      responses:
-        200:
-          description: OK
-host: "auth.brightidea.com"
-basePath: "/oauth"
 tags:
 - name: Member
   description: 
@@ -131,30 +101,52 @@ tags:
       "<a href='https://developer.brightidea.com/_documentation/api/Update' target='_blank'> Get Update</a>"
 schemes:
 - "https"
+/member:
+      get:
+        tags:
+        - "Member"
+        summary: "member()"
+        operationId: "member"
+        parameters:
+        - name: "with"
+          in: "query"
+          description: "Returns sub-object or count of sub-objects relating to the member"
+          required: false
+          type: "string"
+        - name: "format"
+          in: "header"
+          description: "Specifies returned data format"
+          required: false
+          type: "string"
+        responses:
+          200:
+            description: "Status OK"
+          400:
+            description: "Server Rejection"
+          401:
+            description: "Missing parameter. client_id is Required"  
+          403:
+            description: "403 Forbidden"
+securityDefinitions:
+  password:
+    type: oauth2
+    # This should be updated to the Token URL of your OAuth provider.
+    tokenUrl: https://auth.brightidea.com/_oauth2/token
+    flow: password
+    scopes:
+      write: allows modifying resources
+      read: allows reading resources
+security:
+  - password:
+    - read
+    - write
 paths:
-  /member:
-    get:
-      tags:
-      - "Member"
-      summary: "member()"
-      operationId: "member"
-      parameters:
-      - name: "with"
-        in: "query"
-        description: "Returns sub-object or count of sub-objects relating to the member"
-        required: false
-        type: "string"
-      - name: "format"
-        in: "header"
-        description: "Specifies returned data format"
-        required: false
-        type: "string"
+  /token:
+    post:
+      summary: https://auth.brightidea.com/_oauth2/authorize?client_id=<applicationid>&response_type=code&redirect_uri=<applicationredirecturl>
+      description: This is an example opeartion to show how security is applied to the call.
       responses:
         200:
-          description: "Status OK"
-        400:
-          description: "Server Rejection"
-        401:
-          description: "Missing parameter. client_id is Required"  
-        403:
-          description: "403 Forbidden"
+          description: OK
+host: "auth.brightidea.com"
+basePath: "/oauth"
