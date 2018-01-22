@@ -53,6 +53,8 @@ info:
         
     
     Parameter requirements are different for each API function. Visit the Parameter section of each object page to understand what it takes to make a request.
+host: "amgen.brightidea.com"
+basePath: "/api3"
 tags:
 - name: Member
   description: 
@@ -102,6 +104,17 @@ tags:
 schemes:
 - "https"
 /member:
+    post:
+      tags:
+      - "member"
+      summary: "member()"
+      operationID: "member"
+      paramaters:
+      - name: "with"
+        in: query
+        description: "groups or group_count"
+        required: false
+        type: "string"
       get:
         tags:
         - "Member"
@@ -110,7 +123,7 @@ schemes:
         parameters:
         - name: "with"
           in: "query"
-          description: "Returns sub-object or count of sub-objects relating to the member"
+          description: 
           required: false
           type: "string"
         - name: "format"
@@ -140,8 +153,7 @@ security:
   - password:
     - read
     - write
-paths:
-  /token:
+/token:
     post:
       summary: https://auth.brightidea.com/_oauth2/authorize?client_id=<applicationid>&response_type=code&redirect_uri=<applicationredirecturl>
       description: This is an example opeartion to show how security is applied to the call.
