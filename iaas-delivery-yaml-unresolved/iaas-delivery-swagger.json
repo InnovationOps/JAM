@@ -107,7 +107,7 @@ paths:
   /Member:
     get:
       description: "Use CONNECTION_TEST to check your connection to the REST API service"
-      operationId: "connectionTest"
+      operationId: "member"
       parameters:
       - name: "Authorization"
         in: "header"
