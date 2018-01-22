@@ -109,7 +109,7 @@ paths:
       description: "Member Object Info"
       operationId: "id"
       parameters:
-      - name: "id"
+      - name: "client_id"
         in: "path"
         required: true
         type: "string"
