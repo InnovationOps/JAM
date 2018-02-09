@@ -1,0 +1,378 @@
+---
+swagger: "2.0"
+info:
+  description: "The Text Analytics API is a suite of text analytics web services built\
+    \ with best-in-class Microsoft machine learning algorithms.\r\nThe API can be\
+    \ used to analyze unstructured text for tasks such as sentiment analysis, key\
+    \ phrase extraction and language detection.\r\nNo training data is needed to use\
+    \ this API; just bring your text data.\r\nThis API uses advanced natural language\
+    \ processing techniques to deliver best in class predictions.\r\n\r\nFurther documentation\
+    \ can be found in <a href=\"https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/overview\"\
+    >Overview</a>."
+  version: "1.0.0"
+  title: "Text Analytics API"
+host: "virtserver.swaggerhub.com"
+basePath: "/Amgen/LuisAIJAM/1.0.0"
+schemes:
+- "https"
+security:
+- apiKeyHeader: []
+- apiKeyQuery: []
+paths:
+  /keyPhrases:
+    post:
+      description: "The API returns a list of strings denoting the key talking points\
+        \ in the input text. \r\nWe employ techniques from Microsoft Office's sophisticated\
+        \ Natural Language Processing toolkit. \r\n\r\nSee the <a href=\"https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/overview#supported-languages\"\
+        >Text Analytics Documentation</a> for details about the languages that are\
+        \ supported by key phrase extraction."
+      operationId: "Key Phrases"
+      consumes:
+      - "application/json"
+      - "text/json"
+      produces:
+      - "application/json"
+      - "text/json"
+      parameters:
+      - in: "body"
+        name: "multiLanguageBatchInputV2"
+        required: false
+        schema:
+          $ref: "#/definitions/MultiLanguageBatchInputV2"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/KeyPhraseBatchResultV2"
+        400:
+          description: "BadRequest"
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /languages:
+    post:
+      description: "The API returns the detected language and a numeric score between\
+        \ 0 and 1. \r\n            Scores close to 1 indicate 100% certainty that\
+        \ the identified language is true. \r\n            A total of 120 languages\
+        \ are supported."
+      operationId: "Detect Language"
+      consumes:
+      - "application/json"
+      - "text/json"
+      produces:
+      - "application/json"
+      - "text/json"
+      parameters:
+      - name: "numberOfLanguagesToDetect"
+        in: "query"
+        description: "Format - int32. (Optional. Deprecated) Number of languages to\
+          \ detect. Set to 1 by default. Irrespective of the value, the language with\
+          \ the highest score is returned."
+        required: false
+        type: "integer"
+      - in: "body"
+        name: "batchInputV2"
+        required: false
+        schema:
+          $ref: "#/definitions/BatchInputV2"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/LanguageBatchResultV2"
+        400:
+          description: "BadRequest"
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /sentiment:
+    post:
+      description: "The API returns a numeric score between 0 and 1. \r\nScores close\
+        \ to 1 indicate positive sentiment, while scores close to 0 indicate negative\
+        \ sentiment. \r\nSentiment score is generated using classification techniques.\
+        \ \r\nThe input features to the classifier include n-grams, features generated\
+        \ from part-of-speech tags, and word embeddings. \r\n\r\nSee the <a href=\"\
+        https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/overview#supported-languages\"\
+        >Text Analytics Documentation</a> for details about the languages that are\
+        \ supported by sentiment analysis.\r\n"
+      operationId: "Sentiment"
+      consumes:
+      - "application/json"
+      - "text/json"
+      produces:
+      - "application/json"
+      - "text/json"
+      parameters:
+      - in: "body"
+        name: "multiLanguageBatchInputV2"
+        required: false
+        schema:
+          $ref: "#/definitions/MultiLanguageBatchInputV2"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/SentimentBatchResultV2"
+        400:
+          description: "BadRequest"
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+securityDefinitions:
+  apiKeyHeader:
+    type: "apiKey"
+    name: "Ocp-Apim-Subscription-Key"
+    in: "header"
+  apiKeyQuery:
+    type: "apiKey"
+    name: "subscription-key"
+    in: "query"
+definitions:
+  MultiLanguageBatchInputV2:
+    type: "object"
+    properties:
+      documents:
+        type: "array"
+        items:
+          $ref: "#/definitions/MultiLanguageInputV2"
+    example:
+      documents:
+      - language: "language"
+        id: "id"
+        text: "text"
+      - language: "language"
+        id: "id"
+        text: "text"
+  MultiLanguageInputV2:
+    type: "object"
+    properties:
+      language:
+        type: "string"
+        description: "This is the 2 letter ISO 639-1 representation of a language.\r\
+          \n            For example, use \"en\" for English; \"es\" for Spanish etc.,"
+      id:
+        type: "string"
+        description: "Unique, non-empty document identifier."
+      text:
+        type: "string"
+    example:
+      language: "language"
+      id: "id"
+      text: "text"
+  KeyPhraseBatchResultV2:
+    type: "object"
+    properties:
+      documents:
+        type: "array"
+        items:
+          $ref: "#/definitions/KeyPhraseBatchResultItemV2"
+      errors:
+        type: "array"
+        items:
+          $ref: "#/definitions/ErrorRecordV2"
+    example:
+      documents:
+      - keyPhrases:
+        - "keyPhrases"
+        - "keyPhrases"
+        id: "id"
+      - keyPhrases:
+        - "keyPhrases"
+        - "keyPhrases"
+        id: "id"
+      errors:
+      - id: "id"
+        message: "message"
+      - id: "id"
+        message: "message"
+  KeyPhraseBatchResultItemV2:
+    type: "object"
+    properties:
+      keyPhrases:
+        type: "array"
+        description: "A list of representative words or phrases. The number of key\
+          \ phrases returned is proportional to the number of words in the input document."
+        items:
+          type: "string"
+      id:
+        type: "string"
+        description: "Unique document identifier."
+    example:
+      keyPhrases:
+      - "keyPhrases"
+      - "keyPhrases"
+      id: "id"
+  ErrorRecordV2:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+        description: "Input document unique identifier the error refers to."
+      message:
+        type: "string"
+        description: "Error message."
+    example:
+      id: "id"
+      message: "message"
+  ErrorResponse:
+    type: "object"
+    properties:
+      code:
+        type: "string"
+      message:
+        type: "string"
+      target:
+        type: "string"
+      innerError:
+        $ref: "#/definitions/InternalError"
+  InternalError:
+    type: "object"
+    properties:
+      code:
+        type: "string"
+        enum:
+        - "invalidParameterValue"
+        - "invalidRequestBodyFormat"
+        - "missingRequiredHeader"
+        - "invalidRequestContent"
+        - "missingRequiredParameter"
+        - "serviceUnderLoad"
+        - "serverError"
+      message:
+        type: "string"
+      innerError:
+        $ref: "#/definitions/InternalError"
+  BatchInputV2:
+    type: "object"
+    properties:
+      documents:
+        type: "array"
+        items:
+          $ref: "#/definitions/InputV2"
+    example:
+      documents:
+      - id: "id"
+        text: "text"
+      - id: "id"
+        text: "text"
+  InputV2:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+        description: "Unique, non-empty document identifier."
+      text:
+        type: "string"
+    example:
+      id: "id"
+      text: "text"
+  Object:
+    type: "object"
+  LanguageBatchResultV2:
+    type: "object"
+    properties:
+      documents:
+        type: "array"
+        items:
+          $ref: "#/definitions/LanguageBatchResultItemV2"
+      errors:
+        type: "array"
+        items:
+          $ref: "#/definitions/ErrorRecordV2"
+    example:
+      documents:
+      - detectedLanguages:
+        - score: 0.80082819046101150206595775671303272247314453125
+          iso6391Name: "iso6391Name"
+          name: "name"
+        - score: 0.80082819046101150206595775671303272247314453125
+          iso6391Name: "iso6391Name"
+          name: "name"
+        id: "id"
+      - detectedLanguages:
+        - score: 0.80082819046101150206595775671303272247314453125
+          iso6391Name: "iso6391Name"
+          name: "name"
+        - score: 0.80082819046101150206595775671303272247314453125
+          iso6391Name: "iso6391Name"
+          name: "name"
+        id: "id"
+      errors:
+      - id: "id"
+        message: "message"
+      - id: "id"
+        message: "message"
+  LanguageBatchResultItemV2:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+        description: "Unique document identifier."
+      detectedLanguages:
+        type: "array"
+        description: "A list of extracted languages."
+        items:
+          $ref: "#/definitions/DetectedLanguageV2"
+    example:
+      detectedLanguages:
+      - score: 0.80082819046101150206595775671303272247314453125
+        iso6391Name: "iso6391Name"
+        name: "name"
+      - score: 0.80082819046101150206595775671303272247314453125
+        iso6391Name: "iso6391Name"
+        name: "name"
+      id: "id"
+  DetectedLanguageV2:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+        description: "Long name of a detected language (e.g. English, French)."
+      iso6391Name:
+        type: "string"
+        description: "A two letter representation of the detected language according\
+          \ to the ISO 639-1 standard (e.g. en, fr)."
+      score:
+        type: "number"
+        format: "double"
+        description: "A confidence score between 0 and 1. Scores close to 1 indicate\
+          \ 100% certainty that the identified language is true."
+    example:
+      score: 0.80082819046101150206595775671303272247314453125
+      iso6391Name: "iso6391Name"
+      name: "name"
+  SentimentBatchResultV2:
+    type: "object"
+    properties:
+      documents:
+        type: "array"
+        items:
+          $ref: "#/definitions/SentimentBatchResultItemV2"
+      errors:
+        type: "array"
+        items:
+          $ref: "#/definitions/ErrorRecordV2"
+    example:
+      documents:
+      - score: 0.80082819046101150206595775671303272247314453125
+        id: "id"
+      - score: 0.80082819046101150206595775671303272247314453125
+        id: "id"
+      errors:
+      - id: "id"
+        message: "message"
+      - id: "id"
+        message: "message"
+  SentimentBatchResultItemV2:
+    type: "object"
+    properties:
+      score:
+        type: "number"
+        format: "double"
+        description: "A decimal number between 0 and 1 denoting the sentiment of the\
+          \ document. \r\n            A score above 0.7 usually refers to a positive\
+          \ document while a score below 0.3 normally has a negative connotation.\r\
+          \n            Mid values refer to neutral text."
+      id:
+        type: "string"
+        description: "Unique document identifier."
+    example:
+      score: 0.80082819046101150206595775671303272247314453125
+      id: "id"
